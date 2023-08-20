@@ -1,7 +1,9 @@
 package com.sachini.login.security;
 
-import com.sachini.login.security.servies.UserDetailsServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
+ import com.sachini.login.security.jwt.AuthEntryPointJwt;
+ import com.sachini.login.security.jwt.AuthTokenFilter;
+ import com.sachini.login.security.services.UserDetailsServiceImpl;
+ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -27,7 +29,7 @@ public class WebSecurityConfig {
     private AuthEntryPointJwt unAuthorizedHandler;
 
     @Bean
-    public AuthTokenFilter  authenticationJwtTokenFilter() {
+    public AuthTokenFilter authenticationJwtTokenFilter() {
         return new AuthTokenFilter();
     }
 
